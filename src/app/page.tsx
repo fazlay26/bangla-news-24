@@ -3,6 +3,7 @@ import Marquee from "./components/Marquee"; // আপনার পাথ অন�
 import LeftMainNews from './components/LeftMainNews';
 import Image from 'next/image';
 import { Article, CurationData } from '@/types';
+import MostReadNews from './components/MostReadNews';
 
 export default async function Home() {
   const res = await fetch('https://news-api-v2.vercel.app/api/news/sections');
@@ -66,7 +67,7 @@ export default async function Home() {
             {/* নিচের সেকশন: "নির্বাচিত খবর" (Selected News) */}
             <div className="bg-white border border-gray-200 rounded-lg p-5">
     {otherNews.map((on:CurationData) => {
-      console.log(on)
+  
         return (
             <React.Fragment key={on.curationId}>
                 {/* সেকশন হেডলাইন */}
@@ -132,22 +133,7 @@ export default async function Home() {
           {/* ==========================================
               ডান দিকের অংশ (Sidebar - 3 Columns)
           ========================================== */}
-          <div className="lg:col-span-3">
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 h-full">
-              <h3 className="text-lg font-bold text-gray-700 mb-4 border-b pb-2">
-                সর্বাধিক পঠিত
-              </h3>
-              {/* এখানে আপনার সাইডবারের লিস্ট বা টপ নিউজ কম্পোনেন্ট বসবে */}
-              <ul className="flex flex-col gap-4">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-                  <li key={item} className="flex gap-3 items-start">
-                    <span className="text-red-700 font-bold text-lg">{item}</span>
-                    <div className="h-4 bg-gray-200 rounded w-full mt-1"></div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <MostReadNews></MostReadNews>
 
         </div>
       </main>
