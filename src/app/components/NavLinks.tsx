@@ -23,18 +23,24 @@ const NavLinks = async() => {
             <div className='max-w-7xl mx-auto px-4'>
                 
                 <div className='flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-2 py-4'>
+                     <Link href={'/'}>হোম</Link>
                     {filterNavData.map((nav:NavItem,index:number)=>{
                         return (
+                            
+                           
                             <Link 
-                                href={nav.slug} 
+                            
+                                href={`/category/${nav.slug}`} 
                                 key={index}
                                 
                                 className='text-[15px] font-medium text-gray-700 hover:text-red-700 transition-all duration-200 relative group py-1'
                             >
+                                
                                 {nav.title}
                                
                                 <span className='absolute left-0 bottom-0 w-0 h-[2px] bg-red-700 transition-all duration-300 group-hover:w-full'></span>
                             </Link>
+                           
                         );
                     })}
                 </div>
