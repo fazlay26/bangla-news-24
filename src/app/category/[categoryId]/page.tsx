@@ -1,5 +1,6 @@
 import { Article } from '@/types';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 interface CategoryPageProps {
@@ -42,8 +43,9 @@ const CategoryPage = async ({ params }:CategoryPageProps) => {
                         : '';
 
                     return (
-                        <div 
-                            key={cd.id} 
+                     <Link key={cd.id} href={`/news/${cd.id}`}>
+                          <div 
+                             
                             className="bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col hover:shadow-lg transition-shadow duration-300 cursor-pointer"
                         >
                             {/* ইমেজ */}
@@ -83,6 +85,8 @@ const CategoryPage = async ({ params }:CategoryPageProps) => {
                                 </div>
                             </div>
                         </div>
+
+                     </Link>
                     );
                 })}
             </div>

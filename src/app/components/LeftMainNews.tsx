@@ -1,5 +1,6 @@
 import { CurationData } from '@/types';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 interface LeftMainNewsProps {
@@ -8,7 +9,10 @@ interface LeftMainNewsProps {
 
 const LeftMainNews = ({prodhanKhobor}:LeftMainNewsProps) => {
     return (
-        <div className="md:col-span-7 bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col">
+  
+     <Link className='md:col-span-7 bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col' href={`/news/${prodhanKhobor.articles[0].id}`}>
+         
+       <div className="md:col-span-7 bg-white border border-gray-200 rounded-lg overflow-hidden flex flex-col">
     {/* ১. ইমেজ সেকশন */}
     <div className="relative w-full h-[220px]">
     
@@ -40,6 +44,9 @@ const LeftMainNews = ({prodhanKhobor}:LeftMainNewsProps) => {
         </p>
     </div>
 </div>
+
+     </Link>
+
     );
 };
 

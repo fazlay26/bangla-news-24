@@ -1,5 +1,8 @@
+
 import Link from 'next/link';
+
 import React from 'react';
+import NavItem from './NavItem';
 
 interface NavItem {
      slug: string;
@@ -28,18 +31,7 @@ const NavLinks = async() => {
                         return (
                             
                            
-                            <Link 
-                            
-                                href={`/category/${nav.slug}`} 
-                                key={index}
-                                
-                                className='text-[15px] font-medium text-gray-700 hover:text-red-700 transition-all duration-200 relative group py-1'
-                            >
-                                
-                                {nav.title}
-                               
-                                <span className='absolute left-0 bottom-0 w-0 h-[2px] bg-red-700 transition-all duration-300 group-hover:w-full'></span>
-                            </Link>
+                            <NavItem key={index} nav={nav}></NavItem>
                            
                         );
                     })}
